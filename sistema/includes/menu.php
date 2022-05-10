@@ -82,8 +82,8 @@
 		</a>
 		<div id="collapseCategorias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
 			<div class="bg-white py-2 collapse-inner rounded">
-				<a class="collapse-item" href="registro_categorias.php">Nueva Categoria</a>
-				<a class="collapse-item" href="lista_categorias.php">Categorias</a>
+				<a class="collapse-item" href="registrar_categoria.php">Nueva Categoria</a>
+				<a class="collapse-item" href="lista_categoria.php">Categorias</a>
 			</div>
 		</div>
 	</li>

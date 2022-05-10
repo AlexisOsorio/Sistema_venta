@@ -83,6 +83,7 @@ if ($result_sql == 0) {
           </select>
         </div>
         <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Usuario</button>
+        <a href="lista_usuarios.php" class="btn btn-danger">Regresar</a>
       </form>
     </div>
   </div>
