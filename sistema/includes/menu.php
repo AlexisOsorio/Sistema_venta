@@ -17,7 +17,7 @@
 
 	<!-- Heading -->
 	<div class="sidebar-heading">
-		Interface
+		Interfaz
 	</div>
 
 	<!-- Nav Item - Pages Collapse Menu -->
@@ -71,6 +71,19 @@
 			<div class="bg-white py-2 collapse-inner rounded">
 				<a class="collapse-item" href="registro_proveedor.php">Nuevo Proveedor</a>
 				<a class="collapse-item" href="lista_proveedor.php">Proveedores</a>
+			</div>
+		</div>
+	</li>
+	<!-- Nav Item - Categorias Collapse Menu -->
+	<li class="nav-item">
+		<a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategorias" aria-expanded="true" aria-controls="collapseUtilities">
+			<i class="fas fa-list-alt"></i>
+			<span>Categorias</span>
+		</a>
+		<div id="collapseCategorias" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+			<div class="bg-white py-2 collapse-inner rounded">
+				<a class="collapse-item" href="registro_categorias.php">Nueva Categoria</a>
+				<a class="collapse-item" href="lista_categorias.php">Categorias</a>
 			</div>
 		</div>
 	</li>
