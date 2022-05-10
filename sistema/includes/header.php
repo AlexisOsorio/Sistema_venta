@@ -44,7 +44,7 @@ if ($result_data > 0) {
 	<meta name="description" content="">
 	<meta name="author" content="">
 
-	<title>Punto de Venta</title>
+	<title>System Venta</title>
 
 	<!-- Custom styles for this template-->
 	<link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -80,7 +80,7 @@ if ($result_data > 0) {
 					</button>
 					<div class="input-group">
 						<h6>Sistema de Venta</h6>
-						<p class="ml-auto"><strong>Peru, </strong><?php echo fechaPeru(); ?></p>
+						<p class="ml-auto"><strong>Ecuador, </strong><?php echo fechaEcuador(); ?></p>
 					</div>
 
 					<!-- Topbar Navbar -->
