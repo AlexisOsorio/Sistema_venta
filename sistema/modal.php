@@ -8,7 +8,7 @@ if (!empty($_POST)) {
   if ($_POST['action'] == 'infoProducto') {
       $data = "";
     $producto_id = $_POST['producto'];
-    $query = mysqli_query($conexion, "SELECT codproducto, descripcion, precio, existencia FROM producto WHERE codproducto = $producto_id");
+    $query = mysqli_query($conexion, "SELECT codproducto, descripcion, precio, existencia, categoria FROM producto WHERE codproducto = $producto_id");
 
     $result = mysqli_num_rows($query);
     if ($result > 0) {

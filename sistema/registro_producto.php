@@ -2,18 +2,19 @@
   include "../conexion.php";
   if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
+    if (empty($_POST['proveedor']) || empty($_POST['producto']) || empty($_POST['nombre']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0)) {
       $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
     } else {
       $proveedor = $_POST['proveedor'];
       $producto = $_POST['producto'];
+      $nombre = $_POST['nombre'];
       $precio = $_POST['precio'];
       $cantidad = $_POST['cantidad'];
       $usuario_id = $_SESSION['idUser'];
 
-      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,precio,existencia,usuario_id) values ('$proveedor', '$producto', '$precio', '$cantidad','$usuario_id')");
+      $query_insert = mysqli_query($conexion, "INSERT INTO producto(proveedor,descripcion,nombre,precio,existencia,usuario_id) values ('$proveedor', '$producto', '$categoria','$precio', '$cantidad','$usuario_id')");
       if ($query_insert) {
         $alert = '<div class="alert alert-primary" role="alert">
                 Producto Registrado
@@ -64,6 +65,26 @@
          <div class="form-group">
            <label for="producto">Producto</label>
            <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
+         </div>
+         <div class="form-group">
+           <?php
+            $query_categoria = mysqli_query($conexion, "SELECT id_cate, nombre FROM categoria ORDER BY nombre ASC");
+            $resultado_categoria = mysqli_num_rows($query_categoria);
+            mysqli_close($conexion);
+            ?>
+           <label>Categoria</label>
+           <select id="nombre" name="nombre" class="form-control">
+             <?php
+              if ($resultado_categoria > 0) {
+                while ($nombre = mysqli_fetch_array($query_categoria)) {
+                  //code...
+              ?>
+                <option value="<?php echo $nombre['id_cate']; ?>"><?php echo $nombre['nombre']; ?></option>
+             <?php
+                }
+              }
+              ?>
+           </select>
          </div>
          <div class="form-group">
            <label for="precio">Precio</label>

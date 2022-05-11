@@ -3,13 +3,14 @@ include "includes/header.php";
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['nombre'])) {
+  if (empty($_POST['nombre']) || empty($_POST['categoria'])) {
     $alert = '<p class"error">Todo los campos son requeridos</p>';
   } else {
     $id_cate = $_GET['id'];
     $nombre = $_POST['nombre'];
+    $categoria = $_POST['categoria'];
 
-    $sql_update = mysqli_query($conexion, "UPDATE categorias SET nombre = '$nombre' WHERE id_cate = $id_cate");
+    $sql_update = mysqli_query($conexion, "UPDATE categorias SET nombre,categoria = '$nombre', '$categoria' WHERE id_cate = $id_cate");
     $alert = '<p>Categpria Actualizada</p>';
   }
 }
@@ -27,6 +28,7 @@ if ($result_sql == 0) {
 } else {
   if ($data = mysqli_fetch_array($sql)) {
     $nombre = $data['nombre'];
+    $categoria = $data['categoria'];
   }
 }
 ?>
@@ -43,6 +45,10 @@ if ($result_sql == 0) {
         <div class="form-group">
           <label for="nombre">Nombre</label>
           <input type="text" placeholder="Ingrese Categoria" class="form-control" name="nombre" id="nombre" value="<?php echo $nombre; ?>">
+        </div>
+        <div class="form-group">
+          <label for="categoria">Disponible</label>
+          <input type="text" placeholder="Ingrese Si o No" class="form-control" name="categoria" id="categoria" value="<?php echo $categoria; ?>">
         </div>
         <button type="submit" class="btn btn-primary"><i class="fas fa-user-edit"></i> Editar Categoria</button>
         <a href="lista_categoria.php" class="btn btn-danger">Regresar</a>
