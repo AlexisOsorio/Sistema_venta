@@ -2,13 +2,12 @@
 include "../conexion.php";
 if (!empty($_POST)) {
     $alert = "";
-    if (empty($_POST['nombre']) || empty($_POST['disponible'])) {
+    if (empty($_POST['nombre'])) {
         $alert = '<div class="alert alert-danger" role="alert">
                                     Todo los campos son obligatorio
                                 </div>';
     } else {
         $nombre = $_POST['nombre'];
-        $disponible = $_POST['disponible'];
         $usuario_id = $_SESSION['idUser'];
 
         
@@ -19,7 +18,7 @@ if (!empty($_POST)) {
                                     La categoria ya existe
                                 </div>';
         } else {
-            $query_insert = mysqli_query($conexion, "INSERT INTO categorias(nombre,disponible) values ('$nombre'),('$disponible)'");
+            $query_insert = mysqli_query($conexion, "INSERT INTO categorias(nombre) values ('$nombre')");
             if ($query_insert) {
                 $alert = '<div class="alert alert-primary" role="alert">
                                     Categoria Registrada
@@ -52,10 +51,6 @@ if (!empty($_POST)) {
                 <div class="form-group">
                     <label for="nombre">Nombre</label>
                     <input type="text" placeholder="Ingrese Categoria" name="nombre" id="nombre" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="categoria">Disponible</label>
-                    <input type="text" placeholder="Ingrese Si o No" name="disponible" id="disponible" class="form-control">
                 </div>
                 <input type="submit" value="Guardar Categoria" class="btn btn-primary">
             </form>

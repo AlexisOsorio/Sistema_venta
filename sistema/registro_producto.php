@@ -66,26 +66,27 @@
            <label for="producto">Producto</label>
            <input type="text" placeholder="Ingrese nombre del producto" name="producto" id="producto" class="form-control">
          </div>
-         <div class="form-group">
+         <!--<div class="form-group">
            <?php
+           /*
             $query_categoria = mysqli_query($conexion, "SELECT id_cate, nombre FROM categoria ORDER BY nombre ASC");
             $resultado_categoria = mysqli_num_rows($query_categoria);
-            mysqli_close($conexion);
+            mysqli_close($conexion);*/
             ?>
            <label>Categoria</label>
            <select id="nombre" name="nombre" class="form-control">
              <?php
-              if ($resultado_categoria > 0) {
+              /*if ($resultado_categoria > 0) {
                 while ($nombre = mysqli_fetch_array($query_categoria)) {
                   //code...
               ?>
                 <option value="<?php echo $nombre['id_cate']; ?>"><?php echo $nombre['nombre']; ?></option>
              <?php
                 }
-              }
+              }*/
               ?>
            </select>
-         </div>
+         </div>-->
          <div class="form-group">
            <label for="precio">Precio</label>
            <input type="text" placeholder="Ingrese precio" class="form-control" name="precio" id="precio">

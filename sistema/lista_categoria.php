@@ -18,7 +18,6 @@
 						<tr>
 							<th>ID</th>
 							<th>NOMBRE</th>
-							<th>DISPONIBILIDAD</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 							<th>ACCIONES</th>
 							<?php } ?>
@@ -35,7 +34,6 @@
 								<tr>
 									<td><?php echo $data['id_cate']; ?></td>
 									<td><?php echo $data['nombre']; ?></td>
-									<td><?php echo $data['categoria']; ?></td>
 									<?php if ($_SESSION['rol'] == 1) { ?>
 									<td>
 										<a href="editar_categoria.php?id=<?php echo $data['id_cate']; ?>" class="btn btn-success"><i class='fas fa-edit'></i> Editar</a>

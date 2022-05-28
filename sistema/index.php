@@ -146,7 +146,7 @@
 						<form action="empresa.php" method="post" id="frmEmpresa" class="p-3">
 							<div class="form-group">
 								<label>Ruc:</label>
-								<input type="number" name="txtDni" value="<?php echo $dni; ?>" id="txtDni" placeholder="Dni de la Empresa" required class="form-control">
+								<input type="number" name="txtDni" value="<?php echo $dni; ?>" id="txtDni" placeholder="Ruc de la Empresa" required class="form-control">
 							</div>
 							<div class="form-group">
 								<label>Nombre:</label>
