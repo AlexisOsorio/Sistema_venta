@@ -95,9 +95,9 @@ if ($_POST['action'] == 'addProductoDetalle') {
       $iva = $info_iva['igv'];
     }
     while ($data = mysqli_fetch_assoc($query_detalle_temp)) {
-      $precioTotal = round($data['cantidad'] * $data['precio_venta'], 2);
-      $sub_total = round($sub_total + $precioTotal, 2);
-      $total = round($total + $precioTotal, 2);
+      $precioTotal = round($data['cantidad'] * $data['precio_venta']);
+      $total = round($total + $precioTotal);
+      $sub_total = round($sub_total + $precioTotal);
 
         $detalleTabla .='<tr>
             <td>'.$data['codproducto'].'</td>
@@ -110,16 +110,18 @@ if ($_POST['action'] == 'addProductoDetalle') {
             </td>
         </tr>';
     }
-    $impuesto = round($sub_total / $iva, 2);
-    $tl_sniva = round($sub_total - $impuesto, 2);
-    $total = round($tl_sniva + $impuesto, 2);
-    $detalleTotales ='<tr>
+    $impuesto = round(($sub_total * $iva)/100);
+    $tl_sniva = round($sub_total - $impuesto);
+    $total = round($tl_sniva + $impuesto);
+    $detalleTotales =
+    '<tr>
         <td colspan="5" class="textright">Sub_Total S/.</td>
-        <td class="textright">'.$impuesto.'</td>
+        <td class="textright">'. $tl_sniva.'</td>
+        
     </tr>
     <tr>
         <td colspan="5" class="textright">IVA ('.$iva.'%)</td>
-        <td class="textright">'. $tl_sniva.'</td>
+        <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
         <td colspan="5" class="textright">Total S/.</td>
@@ -166,9 +168,9 @@ if ($_POST['action'] == 'searchForDetalle') {
       $iva = $info_iva['igv'];
     }
     while ($data = mysqli_fetch_assoc($query)) {
-      $precioTotal = round($data['cantidad'] * $data['precio_venta'], 2);
-      $sub_total = round($sub_total + $precioTotal, 2);
-      $total = round($total + $precioTotal, 2);
+      $precioTotal = round($data['cantidad'] * $data['precio_venta']);
+      $total = round($total + $precioTotal);
+      $sub_total = round($sub_total + $precioTotal);
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
@@ -181,17 +183,18 @@ if ($_POST['action'] == 'searchForDetalle') {
             </td>
         </tr>';
     }
-    $impuesto = round($sub_total / $iva, 2);
-    $tl_sniva = round($sub_total - $impuesto, 2);
-    $total = round($tl_sniva + $impuesto, 2);
+    $impuesto = round(($sub_total * $iva)/100);
+    $tl_sniva = round($sub_total - $impuesto);
+    $total = round($tl_sniva + $impuesto);
 
-    $detalleTotales = '<tr>
+    $detalleTotales = 
+    '<tr>
         <td colspan="5" class="textright">Sub_Total S/.</td>
-        <td class="textright">'.$impuesto.'</td>
+        <td class="textright">'. $tl_sniva.'</td>
     </tr>
     <tr>
-        <td colspan="5" class="textright">IVA ('.$iva.')</td>
-        <td class="textright">'. $tl_sniva.'</td>
+        <td colspan="5" class="textright">IVA ('.$iva.'%)</td>
+        <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
         <td colspan="5" class="textright">Total S/.</td>
@@ -240,9 +243,9 @@ if ($_POST['action'] == 'delProductoDetalle') {
       $iva = $info_iva['igv'];
     }
     while ($data = mysqli_fetch_assoc($query_detalle_tmp)) {
-      $precioTotal = round($data['cantidad'] * $data['precio_venta'], 2);
-      $sub_total = round($sub_total + $precioTotal, 2);
-      $total = round($total + $precioTotal, 2);
+      $precioTotal = round($data['cantidad'] * $data['precio_venta']);
+      $total = round($total + $precioTotal);
+      $sub_total = round($sub_total + $precioTotal);
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
@@ -255,17 +258,18 @@ if ($_POST['action'] == 'delProductoDetalle') {
             </td>
         </tr>';
     }
-    $impuesto = round($sub_total / $iva, 2);
-    $tl_sniva = round($sub_total - $impuesto, 2);
-    $total = round($tl_sniva + $impuesto, 2);
+    $impuesto = round(($sub_total * $iva)/100);
+    $tl_sniva = round($sub_total - $impuesto);
+    $total = round($tl_sniva + $impuesto);
 
-    $detalleTotales = '<tr>
+    $detalleTotales = 
+    '<tr>
         <td colspan="5" class="textright">Sub_Total S/.</td>
-        <td class="textright">'.$impuesto.'</td>
+        <td class="textright">'. $tl_sniva.'</td>
     </tr>
     <tr>
-        <td colspan="5" class="textright">IVA ('.$iva.')</td>
-        <td class="textright">'. $tl_sniva.'</td>
+        <td colspan="5" class="textright">IVA ('.$iva.'%)</td>
+        <td class="textright">'.$impuesto.'</td>
     </tr>
     <tr>
         <td colspan="5" class="textright">Total S/.</td>
